@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables de Ionic adaptadas a la estética brutalista */
+:root {
+  --ion-color-primary: #0a0a0a;
+  --ion-color-primary-rgb: 10, 10, 10;
+  --ion-color-primary-contrast: #ffe14d;
+  --ion-color-primary-contrast-rgb: 255, 225, 77;
+  --ion-color-primary-shade: #000000;
+  --ion-color-primary-tint: #232323;
+
+  --ion-background-color: #fff8e7;
+  --ion-text-color: #0a0a0a;
+  --ion-font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+}
+
+/* Spinner del Pull-to-Refresh en negro */
+ion-refresher-content {
+  --color: #0a0a0a;
+}
+
+::selection {
+  background: #ff6b9d;
+  color: #0a0a0a;
+}
+
+/* Componentes reutilizables (Tailwind @apply) */
+@layer components {
+  .brutal-card {
+    @apply border-4 border-brutal-ink shadow-brutal;
+  }
+
+  /* Botón: al pasar el ratón "se hunde" hacia su sombra; al pulsar, la tapa del todo */
+  .brutal-btn {
+    @apply inline-flex items-center justify-center gap-2 border-4 border-brutal-ink px-5 py-3
+      font-display text-base uppercase tracking-wide text-brutal-ink shadow-brutal
+      transition-all duration-150
+      hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-brutal-sm
+      active:translate-x-[6px] active:translate-y-[6px] active:shadow-none
+      focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-brutal-blue;
+  }
+
+  .brutal-icon-btn {
+    @apply inline-flex h-11 w-11 items-center justify-center border-4 border-brutal-ink text-2xl
+      shadow-brutal-sm transition-all duration-150
+      hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none
+      focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-brutal-blue;
+  }
+
+  .brutal-input {
+    @apply w-full border-4 border-brutal-ink bg-white px-4 py-3 font-body text-base font-bold
+      text-brutal-ink shadow-brutal-sm transition-colors duration-150
+      placeholder:font-medium placeholder:text-neutral-500
+      focus:bg-brutal-yellow focus:outline-none;
+  }
+
+  .brutal-label {
+    @apply mb-2 block font-mono text-sm font-bold uppercase;
+  }
+}
